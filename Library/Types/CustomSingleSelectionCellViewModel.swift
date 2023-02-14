@@ -9,17 +9,15 @@ import Foundation
 import SwiftUI
 
 class CustomSingleSelectionCellViewModel<DataType: Equatable,
-                                            RequestServiceType: RequestService,
-                                         RouteType: Route>: CustomViewModel<RequestServiceType, RouteType> {
+                                            RequestServiceType: RequestService>: CustomViewModel<RequestServiceType> {
 
     private(set) var data: DataType? = nil
     private var selectionKeeper: Binding<DataType?> = .constant(nil)
 
     convenience init(withData data: DataType,
          withSelectionKeeper selectionKeeper: Binding<DataType?>,
-         withRequestService requestService: RequestServiceType = DIContainer.shared.resolve(type: RequestServiceType.self)!,
-         withRoute route: RouteType.Type = DIContainer.shared.resolve(type: RouteType.Type.self)!) {
-        self.init(withRequestService: requestService, andRoute: route)
+         withRequestService requestService: RequestServiceType = DIContainer.shared.resolve(type: RequestServiceType.self)!) {
+        self.init(withRequestService: requestService)
         self.data = data
         self.selectionKeeper = selectionKeeper
     }

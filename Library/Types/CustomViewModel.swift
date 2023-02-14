@@ -9,10 +9,9 @@ import Foundation
 import Combine
 import SwiftUI
 
-open class CustomViewModel<RequestServiceType: RequestService, RouteType: Route>: ViewModel, ObservableObject, CancellablesStore {
+open class CustomViewModel<RequestServiceType: RequestService>: ViewModel, ObservableObject, CancellablesStore {
 
     public typealias RequestServiceType = RequestServiceType
-    public typealias RouteType = RouteType
 
     public var bag = Set<AnyCancellable>()
 
@@ -24,12 +23,9 @@ open class CustomViewModel<RequestServiceType: RequestService, RouteType: Route>
     public var errorSubject = PassthroughSubject<Error?, Never>()
 
     public var request: RequestService
-    public var route: RouteType.Type
 
-    public init(withRequestService requestService: RequestServiceType = DIContainer.shared.resolve(type: RequestServiceType.self)!,
-                         andRoute route: RouteType.Type = DIContainer.shared.resolve(type: RouteType.Type.self)!) {
+    public init(withRequestService requestService: RequestServiceType = DIContainer.shared.resolve(type: RequestServiceType.self)!) {
         self.request = requestService
-        self.route = route
 
         self
             .pendingSubject

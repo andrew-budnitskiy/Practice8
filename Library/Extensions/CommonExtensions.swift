@@ -390,7 +390,7 @@ extension Publisher where Output == Flow {
 
     }
 
-    func connectPending<RequestServiceType: RequestService, RouteType: Route>(to viewModel: CustomViewModel<RequestServiceType, RouteType>) -> Self {
+    func connectPending<RequestServiceType: RequestService>(to viewModel: CustomViewModel<RequestServiceType>) -> Self {
         viewModel
             .pendingSubject
             .send(self.isPending)
@@ -398,7 +398,7 @@ extension Publisher where Output == Flow {
         return self
     }
 
-    func connectError<RequestServiceType: RequestService, RouteType: Route>(to viewModel: CustomViewModel<RequestServiceType, RouteType>,
+    func connectError<RequestServiceType: RequestService>(to viewModel: CustomViewModel<RequestServiceType>,
                                                                             collecting bag: inout Set<AnyCancellable>) -> Self {
 
         self
@@ -421,19 +421,4 @@ extension Color: ExpressibleByStringLiteral {
     public init(stringLiteral value: String) {
         self = .init(value)
     }
-}
-
-
-//MARK: - View
-
-extension View {
-
-    func push<RouteType: Route>(_ router: CustomRouter<RouteType>) -> some View {
-        self.modifier(PushModifier(presentingView: router.binding(keyPath: \.pushing)))
-    }
-
-    func present<RouteType: Route>(_ router: CustomRouter<RouteType>) -> some View {
-        self.modifier(PresentModifier(presentingView: router.binding(keyPath: \.presenting)))
-    }
-
 }

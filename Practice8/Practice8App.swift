@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import AlamofireNetworkActivityLogger
 
 @main
 struct Practice8App: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+
+    #if DEBUG
+        NetworkActivityLogger.shared.level = .debug
+        NetworkActivityLogger.shared.startLogging()
+    #endif
+
+    DIContainer.shared.register(type: CustomRequestService.self,
+                                component: CustomRequestService())
+        return WindowGroup {
+            StartView(withViewModel: .init())
         }
     }
 }

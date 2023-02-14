@@ -24,9 +24,6 @@
 		0B54A812299947A6007CD40B /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7ED299947A6007CD40B /* CommonFunctions.swift */; };
 		0B54A813299947A6007CD40B /* NotificationDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7EE299947A6007CD40B /* NotificationDesign.swift */; };
 		0B54A814299947A6007CD40B /* Subscribers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7EF299947A6007CD40B /* Subscribers.swift */; };
-		0B54A815299947A6007CD40B /* CustomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7F1299947A6007CD40B /* CustomRouter.swift */; };
-		0B54A816299947A6007CD40B /* PresentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7F2299947A6007CD40B /* PresentModifier.swift */; };
-		0B54A817299947A6007CD40B /* PushModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7F3299947A6007CD40B /* PushModifier.swift */; };
 		0B54A818299947A6007CD40B /* PublishedOnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7F4299947A6007CD40B /* PublishedOnMain.swift */; };
 		0B54A819299947A6007CD40B /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7F6299947A6007CD40B /* CommonExtensions.swift */; };
 		0B54A81A299947A6007CD40B /* HttpAfRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7F8299947A6007CD40B /* HttpAfRequestParams.swift */; };
@@ -48,6 +45,12 @@
 		0B54A82D29994B13007CD40B /* CustomCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A82C29994B13007CD40B /* CustomCoreDataService.swift */; };
 		0B54A82F29995728007CD40B /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A82E29995728007CD40B /* TypeAliases.swift */; };
 		0B54A831299960AF007CD40B /* CoreDataGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A830299960AF007CD40B /* CoreDataGround.swift */; };
+		0BDEB21F299C0DDB0009A163 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDEB21E299C0DDB0009A163 /* PracticeViewModel.swift */; };
+		0BDEB223299C0F870009A163 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDEB222299C0F870009A163 /* StartViewModel.swift */; };
+		0BDEB225299C0FA30009A163 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDEB224299C0FA30009A163 /* StartView.swift */; };
+		0BDEB228299C12400009A163 /* AlamofireNetworkActivityLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 0BDEB227299C12400009A163 /* AlamofireNetworkActivityLogger */; };
+		0BDEB22B299C14830009A163 /* TestingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDEB22A299C14830009A163 /* TestingViewModel.swift */; };
+		0BDEB22D299C148F0009A163 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDEB22C299C148F0009A163 /* TestingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,9 +72,6 @@
 		0B54A7ED299947A6007CD40B /* CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		0B54A7EE299947A6007CD40B /* NotificationDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDesign.swift; sourceTree = "<group>"; };
 		0B54A7EF299947A6007CD40B /* Subscribers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscribers.swift; sourceTree = "<group>"; };
-		0B54A7F1299947A6007CD40B /* CustomRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRouter.swift; sourceTree = "<group>"; };
-		0B54A7F2299947A6007CD40B /* PresentModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentModifier.swift; sourceTree = "<group>"; };
-		0B54A7F3299947A6007CD40B /* PushModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushModifier.swift; sourceTree = "<group>"; };
 		0B54A7F4299947A6007CD40B /* PublishedOnMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishedOnMain.swift; sourceTree = "<group>"; };
 		0B54A7F6299947A6007CD40B /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
 		0B54A7F8299947A6007CD40B /* HttpAfRequestParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpAfRequestParams.swift; sourceTree = "<group>"; };
@@ -92,6 +92,11 @@
 		0B54A82C29994B13007CD40B /* CustomCoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCoreDataService.swift; sourceTree = "<group>"; };
 		0B54A82E29995728007CD40B /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		0B54A830299960AF007CD40B /* CoreDataGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataGround.swift; sourceTree = "<group>"; };
+		0BDEB21E299C0DDB0009A163 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
+		0BDEB222299C0F870009A163 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		0BDEB224299C0FA30009A163 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		0BDEB22A299C14830009A163 /* TestingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewModel.swift; sourceTree = "<group>"; };
+		0BDEB22C299C148F0009A163 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B54A82B2999497F007CD40B /* Alamofire in Frameworks */,
+				0BDEB228299C12400009A163 /* AlamofireNetworkActivityLogger in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +115,7 @@
 		0B54A7C6299943CB007CD40B = {
 			isa = PBXGroup;
 			children = (
+				0B54A7E1299947A6007CD40B /* Library */,
 				0B54A7D1299943CB007CD40B /* Practice8 */,
 				0B54A7D0299943CB007CD40B /* Products */,
 			);
@@ -125,7 +132,8 @@
 		0B54A7D1299943CB007CD40B /* Practice8 */ = {
 			isa = PBXGroup;
 			children = (
-				0B54A7E1299947A6007CD40B /* Library */,
+				0BDEB220299C0F630009A163 /* Views */,
+				0BDEB21D299C0DBD0009A163 /* LocalLibrary */,
 				0B54A7D2299943CB007CD40B /* Practice8App.swift */,
 				0B54A7D4299943CB007CD40B /* ContentView.swift */,
 				0B54A7D6299943CD007CD40B /* Assets.xcassets */,
@@ -169,21 +177,10 @@
 				0B54A7ED299947A6007CD40B /* CommonFunctions.swift */,
 				0B54A7EE299947A6007CD40B /* NotificationDesign.swift */,
 				0B54A7EF299947A6007CD40B /* Subscribers.swift */,
-				0B54A7F0299947A6007CD40B /* Routing */,
 				0B54A7F4299947A6007CD40B /* PublishedOnMain.swift */,
 				0B54A82E29995728007CD40B /* TypeAliases.swift */,
 			);
 			path = Types;
-			sourceTree = "<group>";
-		};
-		0B54A7F0299947A6007CD40B /* Routing */ = {
-			isa = PBXGroup;
-			children = (
-				0B54A7F1299947A6007CD40B /* CustomRouter.swift */,
-				0B54A7F2299947A6007CD40B /* PresentModifier.swift */,
-				0B54A7F3299947A6007CD40B /* PushModifier.swift */,
-			);
-			path = Routing;
 			sourceTree = "<group>";
 		};
 		0B54A7F5299947A6007CD40B /* Extensions */ = {
@@ -225,6 +222,41 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		0BDEB21D299C0DBD0009A163 /* LocalLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				0BDEB21E299C0DDB0009A163 /* PracticeViewModel.swift */,
+			);
+			path = LocalLibrary;
+			sourceTree = "<group>";
+		};
+		0BDEB220299C0F630009A163 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0BDEB229299C146D0009A163 /* Testing */,
+				0BDEB221299C0F6F0009A163 /* Start */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0BDEB221299C0F6F0009A163 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				0BDEB222299C0F870009A163 /* StartViewModel.swift */,
+				0BDEB224299C0FA30009A163 /* StartView.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		0BDEB229299C146D0009A163 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				0BDEB22A299C14830009A163 /* TestingViewModel.swift */,
+				0BDEB22C299C148F0009A163 /* TestingView.swift */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,6 +275,7 @@
 			name = Practice8;
 			packageProductDependencies = (
 				0B54A82A2999497F007CD40B /* Alamofire */,
+				0BDEB227299C12400009A163 /* AlamofireNetworkActivityLogger */,
 			);
 			productName = Practice8;
 			productReference = 0B54A7CF299943CB007CD40B /* Practice8.app */;
@@ -274,6 +307,7 @@
 			mainGroup = 0B54A7C6299943CB007CD40B;
 			packageReferences = (
 				0B54A8292999497F007CD40B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0BDEB226299C12400009A163 /* XCRemoteSwiftPackageReference "AlamofireNetworkActivityLogger" */,
 			);
 			productRefGroup = 0B54A7D0299943CB007CD40B /* Products */;
 			projectDirPath = "";
@@ -302,10 +336,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B54A810299947A6007CD40B /* CustomViewModel.swift in Sources */,
+				0BDEB225299C0FA30009A163 /* StartView.swift in Sources */,
 				0B54A826299947A7007CD40B /* DIContainer.swift in Sources */,
 				0B54A80B299947A6007CD40B /* CustomSingleSelectionCellViewModel.swift in Sources */,
 				0B54A81D299947A6007CD40B /* CustomRequestService.swift in Sources */,
 				0B54A7D5299943CB007CD40B /* ContentView.swift in Sources */,
+				0BDEB22B299C14830009A163 /* TestingViewModel.swift in Sources */,
 				0B54A82D29994B13007CD40B /* CustomCoreDataService.swift in Sources */,
 				0B54A81A299947A6007CD40B /* HttpAfRequestParams.swift in Sources */,
 				0B54A80A299947A6007CD40B /* Elementary.swift in Sources */,
@@ -313,22 +349,22 @@
 				0B54A80C299947A6007CD40B /* CommonErrors.swift in Sources */,
 				0B54A828299947A7007CD40B /* ViewModelled.swift in Sources */,
 				0B54A827299947A7007CD40B /* Route.swift in Sources */,
-				0B54A816299947A6007CD40B /* PresentModifier.swift in Sources */,
 				0B54A80D299947A6007CD40B /* ServiceLocator.swift in Sources */,
 				0B54A824299947A7007CD40B /* ErrorHeaderable.swift in Sources */,
 				0B54A823299947A7007CD40B /* ViewModel.swift in Sources */,
+				0BDEB21F299C0DDB0009A163 /* PracticeViewModel.swift in Sources */,
 				0B54A813299947A6007CD40B /* NotificationDesign.swift in Sources */,
 				0B54A811299947A6007CD40B /* Settings.swift in Sources */,
 				0B54A82F29995728007CD40B /* TypeAliases.swift in Sources */,
+				0BDEB22D299C148F0009A163 /* TestingView.swift in Sources */,
 				0B54A7D3299943CB007CD40B /* Practice8App.swift in Sources */,
+				0BDEB223299C0F870009A163 /* StartViewModel.swift in Sources */,
 				0B54A81B299947A6007CD40B /* CustomHttpAfService.swift in Sources */,
 				0B54A825299947A7007CD40B /* Routing.swift in Sources */,
 				0B54A822299947A7007CD40B /* Pending.swift in Sources */,
 				0B54A819299947A6007CD40B /* CommonExtensions.swift in Sources */,
-				0B54A815299947A6007CD40B /* CustomRouter.swift in Sources */,
 				0B54A81E299947A7007CD40B /* CustomKeychainService.swift in Sources */,
 				0B54A80E299947A6007CD40B /* Flow.swift in Sources */,
-				0B54A817299947A6007CD40B /* PushModifier.swift in Sources */,
 				0B54A820299947A7007CD40B /* RequestService.swift in Sources */,
 				0B54A814299947A6007CD40B /* Subscribers.swift in Sources */,
 				0B54A809299947A6007CD40B /* ConfigInstance.swift in Sources */,
@@ -547,6 +583,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		0BDEB226299C12400009A163 /* XCRemoteSwiftPackageReference "AlamofireNetworkActivityLogger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/konkab/AlamofireNetworkActivityLogger.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -554,6 +598,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0B54A8292999497F007CD40B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		0BDEB227299C12400009A163 /* AlamofireNetworkActivityLogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BDEB226299C12400009A163 /* XCRemoteSwiftPackageReference "AlamofireNetworkActivityLogger" */;
+			productName = AlamofireNetworkActivityLogger;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

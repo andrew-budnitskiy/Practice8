@@ -10,9 +10,6 @@ import SwiftUI
 
 public protocol ViewModelled {
     associatedtype ViewModelType: ViewModel
-    associatedtype RouterType: Routing where RouterType.RouteType == ViewModelType.RouteType
-
     var viewModel: ViewModelType { get }
-    var router: RouterType { get }
     
 }
