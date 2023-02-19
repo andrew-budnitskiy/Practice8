@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B3DBBE829A2AF9800BAAFAB /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3DBBE729A2AF9800BAAFAB /* Types.swift */; };
 		0B54A7D3299943CB007CD40B /* Practice8App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7D2299943CB007CD40B /* Practice8App.swift */; };
 		0B54A7D5299943CB007CD40B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7D4299943CB007CD40B /* ContentView.swift */; };
 		0B54A7D7299943CD007CD40B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B54A7D6299943CD007CD40B /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B3DBBE729A2AF9800BAAFAB /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		0B54A7CF299943CB007CD40B /* Practice8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B54A7D2299943CB007CD40B /* Practice8App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice8App.swift; sourceTree = "<group>"; };
 		0B54A7D4299943CB007CD40B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				0BDEB21E299C0DDB0009A163 /* PracticeViewModel.swift */,
+				0B3DBBE729A2AF9800BAAFAB /* Types.swift */,
 			);
 			path = LocalLibrary;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				0B54A81A299947A6007CD40B /* HttpAfRequestParams.swift in Sources */,
 				0B54A80A299947A6007CD40B /* Elementary.swift in Sources */,
 				0B54A81F299947A7007CD40B /* DataEmitting.swift in Sources */,
+				0B3DBBE829A2AF9800BAAFAB /* Types.swift in Sources */,
 				0B54A80C299947A6007CD40B /* CommonErrors.swift in Sources */,
 				0B54A828299947A7007CD40B /* ViewModelled.swift in Sources */,
 				0B54A827299947A7007CD40B /* Route.swift in Sources */,

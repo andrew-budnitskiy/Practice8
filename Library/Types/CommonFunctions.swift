@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 public class CommonFunctions {
 
@@ -30,5 +31,17 @@ public class CommonFunctions {
         }
 
     }
+
+    public class CoreData {
+
+        public static var Ground: CoreDataGround {
+
+            let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "Database"
+            return CoreDataGround.instance(withModelName: appName, withStoreName: appName)
+
+        }
+
+    }
+
 
 }
