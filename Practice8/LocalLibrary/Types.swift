@@ -8,17 +8,11 @@
 import Foundation
 import CoreData
 
-class TheNewsApiSource: NSManagedObject, Codable, Identifiable {
+class TheNewsApiSource: NSManagedObject, Decodable {
 
     static var Context: NSManagedObjectContext? = CommonFunctions.CoreData.Ground.managedObjectContext
 
     public var id = UUID()
-
-    let sourceId: String
-    let domain: String
-    let language: String
-    let locale: String
-    let categories: String
 
     private enum CodingKeys: String, CodingKey {
         case sourceId = "source_id"

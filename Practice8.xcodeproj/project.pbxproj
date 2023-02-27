@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B15ED7129AD298A00C632BD /* Practice8.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B15ED6F29AD298A00C632BD /* Practice8.xcdatamodeld */; };
 		0B3DBBE829A2AF9800BAAFAB /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3DBBE729A2AF9800BAAFAB /* Types.swift */; };
 		0B54A7D3299943CB007CD40B /* Practice8App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7D2299943CB007CD40B /* Practice8App.swift */; };
 		0B54A7D5299943CB007CD40B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7D4299943CB007CD40B /* ContentView.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B15ED7029AD298A00C632BD /* Practice8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Practice8.xcdatamodel; sourceTree = "<group>"; };
 		0B3DBBE729A2AF9800BAAFAB /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		0B54A7CF299943CB007CD40B /* Practice8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B54A7D2299943CB007CD40B /* Practice8App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice8App.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			children = (
 				0BDEB21E299C0DDB0009A163 /* PracticeViewModel.swift */,
 				0B3DBBE729A2AF9800BAAFAB /* Types.swift */,
+				0B15ED6F29AD298A00C632BD /* Practice8.xcdatamodeld */,
 			);
 			path = LocalLibrary;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B54A810299947A6007CD40B /* CustomViewModel.swift in Sources */,
+				0B15ED7129AD298A00C632BD /* Practice8.xcdatamodeld in Sources */,
 				0BDEB225299C0FA30009A163 /* StartView.swift in Sources */,
 				0B54A826299947A7007CD40B /* DIContainer.swift in Sources */,
 				0B54A80B299947A6007CD40B /* CustomSingleSelectionCellViewModel.swift in Sources */,
@@ -609,6 +613,19 @@
 			productName = AlamofireNetworkActivityLogger;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		0B15ED6F29AD298A00C632BD /* Practice8.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0B15ED7029AD298A00C632BD /* Practice8.xcdatamodel */,
+			);
+			currentVersion = 0B15ED7029AD298A00C632BD /* Practice8.xcdatamodel */;
+			path = Practice8.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0B54A7C7299943CB007CD40B /* Project object */;
 }
