@@ -21,6 +21,11 @@ open class CustomRequestService: RequestService {
         .init()
     }()
 
+    public private(set) lazy var database: CustomCoreDataService = {
+        .instance()
+    }()
+
+
     required public init() {}
 
 }

@@ -12,5 +12,5 @@ public protocol RequestService: Initializable {
     var http: CustomHttpAfService { get }
     var userDefaults: CustomUserDefaultsService { get }
     var keychain: CustomKeychainService { get }
-
+    var database: CustomCoreDataService { get }
 }

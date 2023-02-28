@@ -9,7 +9,7 @@ import Foundation
 
 public class CustomUserDefaultsService {
 
-    open class func setValue<T: Encodable>(_ value: T?,
+    open func setValue<T: Encodable>(_ value: T?,
                              forKey key: String,
                              usingEncoder encoder: JSONEncoder = JSONEncoder(),
                              in userDefaults: UserDefaults = UserDefaults.standard) {
@@ -26,7 +26,7 @@ public class CustomUserDefaultsService {
         userDefaults.synchronize()
     }
 
-    open class func value<T: Decodable>(forKey key: String,
+    open func value<T: Decodable>(forKey key: String,
                                         usingDecoder decoder: JSONDecoder = JSONDecoder(),
                                         in userDefaults: UserDefaults = UserDefaults.standard) -> T? {
         do {

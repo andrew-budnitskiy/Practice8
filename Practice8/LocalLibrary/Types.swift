@@ -42,3 +42,48 @@ class TheNewsApiSource: NSManagedObject, Decodable {
     }
 
 }
+
+class TheNewsApiSources: Decodable {
+
+    let data: [TheNewsApiSource]
+
+    private enum CodingKeys: CodingKey {
+        case data
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.data = try container.decode([TheNewsApiSource].self, forKey: .data)
+    }
+
+}
+
+extension String {
+
+    class tables {
+        static var TheNewsApiSources: String {
+            "TheNewsApiSources"
+        }
+    }
+
+}
+
+class SematicInfo: Codable {
+
+    let lastUpdate: Date?
+
+    private enum CodingKeys: CodingKey {
+        case lastUpdate
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.lastUpdate = try container.decodeIfPresent(Date.self, forKey: .lastUpdate)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.lastUpdate, forKey: .lastUpdate)
+    }
+
+}
