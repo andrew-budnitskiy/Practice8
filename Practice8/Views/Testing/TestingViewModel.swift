@@ -41,18 +41,55 @@ extension TestingViewModel {
 
     }
 
-    func semanticInfoRequest() -> AnyPublisher<SematicInfo?, Error> {
+    func semanticInfoRequest() -> AnyPublisher<SemanticInfo?, Error> {
 
-        let semanticInfo: SematicInfo? = self
+        let semanticInfo: SemanticInfo? = self
             .request
             .userDefaults.value(forKey: "",
                                 usingDecoder: JSONDecoder())
 
-
-        return Future<SematicInfo?, Error>.init { promise in
+        return Future<SemanticInfo?, Error>.init { promise in
             promise(.success(semanticInfo))
         }
         .eraseToAnyPublisher()
+
+    }
+
+    func execute() {
+
+        let cacheRequest = Publishers.CombineLatest(coreDataCacheRequest(),
+                                                    semanticInfoRequest())
+            .map { data, semantic in
+                return (data, semantic)
+            }
+            .asFlow
+            .connectPending(to: self)
+            .eraseToAnyPublisher()
+
+        let remoteRequest = self.remoteDataRequest()
+                            .map { apiData -> (TheNewsApiSources, SemanticInfo?) in
+                                return (apiData, SemanticInfo(withLastUpdate: Date()))
+                            }
+                            .asFlow
+                            .connectPending(to: self)
+                            .eraseToAnyPublisher()
+
+        cacheRequest
+            .flatMap { (a: Flow) -> AnyPublisher<Flow, Error> in
+                return remoteRequest
+            }
+            .fromFlow()
+            .sink { _ in
+
+            } receiveValue: { (flow: (TheNewsApiSources, SemanticInfo?)) in
+                flow.0.data
+            }
+            .store(in: &self.bag)
+
+
+
+
+
 
     }
 

@@ -68,7 +68,7 @@ extension String {
 
 }
 
-class SematicInfo: Codable {
+struct SemanticInfo: Codable {
 
     let lastUpdate: Date?
 
@@ -76,9 +76,13 @@ class SematicInfo: Codable {
         case lastUpdate
     }
 
-    required init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.lastUpdate = try container.decodeIfPresent(Date.self, forKey: .lastUpdate)
+    }
+
+    init(withLastUpdate lastUpdate: Date?) {
+        self.lastUpdate = lastUpdate
     }
 
     func encode(to encoder: Encoder) throws {
