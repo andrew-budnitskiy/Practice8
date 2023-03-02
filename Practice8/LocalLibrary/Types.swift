@@ -34,7 +34,7 @@ class TheNewsApiSource: NSManagedObject, Decodable {
         self.sourceId = try container.decode(String.self, forKey: .sourceId)
         self.domain = try container.decode(String.self, forKey: .domain)
         self.language = try container.decode(String.self, forKey: .language)
-        self.locale = try container.decode(String.self, forKey: .locale)
+        self.locale = try container.decodeIfPresent(String.self, forKey: .locale)
 
         let categories = try container.decode([String].self, forKey: .categories)
         self.categories = categories.joined(separator: ", ")

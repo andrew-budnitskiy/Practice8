@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreData
 
 class TestingViewModel: PracticeViewModel {
     
@@ -22,14 +23,13 @@ extension TestingViewModel {
             .request
             .http
             .execute(withParams: HttpAfRequestParams(withUrl: url,
-                                                     withParams: ["apiToken": apiToken],
+                                                     withParams: ["api_token": apiToken],
                                                      withRequestMethod: .get))
         return result
 
     }
 
     func coreDataCacheRequest() -> AnyPublisher<[TheNewsApiSource], Error> {
-
         return self
             .request
             .database
@@ -38,7 +38,20 @@ extension TestingViewModel {
                 return items ?? []
             }
             .eraseToAnyPublisher()
+    }
 
+    func cleanCacheRequest() -> AnyPublisher<Void, Error> {
+        return self
+            .request
+            .database
+            .delete(inTable: .tables.TheNewsApiSources)
+    }
+
+    func saveDataToCache(fromContext context: NSManagedObjectContext) -> AnyPublisher<Void, Error> {
+        self
+            .request
+            .database
+            .commit_(onContext: context)
     }
 
     func semanticInfoRequest() -> AnyPublisher<SemanticInfo?, Error> {
@@ -54,6 +67,7 @@ extension TestingViewModel {
         .eraseToAnyPublisher()
 
     }
+
 
     func execute() {
 
@@ -77,12 +91,22 @@ extension TestingViewModel {
         cacheRequest
             .flatMap { (a: Flow) -> AnyPublisher<Flow, Error> in
                 return remoteRequest
+                    .map { flow in
+                        switch flow {
+                        case .data(let data):
+                            break
+                        default:
+                            break
+                        }
+                        return flow
+                    }
+                    .eraseToAnyPublisher()
             }
             .fromFlow()
             .sink { _ in
 
-            } receiveValue: { (flow: (TheNewsApiSources, SemanticInfo?)) in
-                flow.0.data
+            } receiveValue: { (data: (TheNewsApiSources, SemanticInfo?)) in
+
             }
             .store(in: &self.bag)
 

@@ -18,22 +18,27 @@ struct StartView: View, ViewModelled {
 
     var body: some View {
 
-        VStack {
-            Button {
+        NavigationView {
+            VStack {
 
-            } label: {
-                Text("Экран тестирования")
-                    .foregroundColor(.blue)
-                    .frame(width: 200,
-                           height: 60,
-                           alignment: .center)
+
+                NavigationLink {
+                    let viewModel = TestingViewModel()
+                    TestingView(withViewModel: viewModel)
+                } label: {
+                    Text("Экран тестирования")
+                        .foregroundColor(.blue)
+                        .frame(width: 200,
+                               height: 60,
+                               alignment: .center)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(.blue,
+                                            lineWidth: 1)
+                            )
+                }
+
             }
-            .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(.blue,
-                                lineWidth: 1)
-                )
-
         }
 
     }

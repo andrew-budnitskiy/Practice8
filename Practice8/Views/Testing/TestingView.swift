@@ -17,7 +17,10 @@ struct TestingView: View, ViewModelled {
     }
 
     var body: some View {
-        EmptyView()
+
+        Button("Запрос") {
+            self.viewModel.execute()
+        }
     }
 
 }
