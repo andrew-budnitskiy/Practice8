@@ -335,6 +335,21 @@ public extension String {
 
 }
 
+public extension Date {
+
+    func toString(withFormat format: String) -> String {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+
+        return dateFormatter.string(from: self)
+
+    }
+
+}
+
+
 // MARK: - Publisher
 extension Publisher {
 

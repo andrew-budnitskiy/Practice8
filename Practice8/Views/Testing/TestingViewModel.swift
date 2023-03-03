@@ -10,13 +10,17 @@ import Combine
 import CoreData
 
 class TestingViewModel: PracticeViewModel {
-    
+
+    private static let emptyUpdateInfo = "Загрузка данных не производилась"
+
+    @Published var list: [TheNewsApiSource] = []
+    @Published var lastUpdate: String = emptyUpdateInfo
+
 }
 
 extension TestingViewModel {
 
     func remoteDataRequest() -> AnyPublisher<TheNewsApiSources, Error> {
-
         let apiToken: String = "wVTpnmkmnAQudIaFoRgqZhyNcCMlbsA6Fd8fDR6i"
         let url = "https://api.thenewsapi.com/v1/news/sources"
         let result: AnyPublisher<TheNewsApiSources, Error> = self
@@ -26,10 +30,12 @@ extension TestingViewModel {
                                                      withParams: ["api_token": apiToken],
                                                      withRequestMethod: .get))
         return result
-
     }
+}
 
-    func coreDataCacheRequest() -> AnyPublisher<[TheNewsApiSource], Error> {
+extension TestingViewModel {
+
+    private func coreDataCacheRequest() -> AnyPublisher<[TheNewsApiSource], Error> {
         return self
             .request
             .database
@@ -40,21 +46,21 @@ extension TestingViewModel {
             .eraseToAnyPublisher()
     }
 
-    func cleanCacheRequest() -> AnyPublisher<Void, Error> {
+    private func cleanCacheRequest() -> AnyPublisher<Void, Error> {
         return self
             .request
             .database
             .delete(inTable: .tables.TheNewsApiSources)
     }
 
-    func saveDataToCache(fromContext context: NSManagedObjectContext) -> AnyPublisher<Void, Error> {
+    private func saveDataToCache(fromContext context: NSManagedObjectContext) -> AnyPublisher<Void, Error> {
         self
             .request
             .database
             .commit_(onContext: context)
     }
 
-    func semanticInfoRequest() -> AnyPublisher<SemanticInfo?, Error> {
+    private func semanticInfoRequest() -> AnyPublisher<SemanticInfo?, Error> {
 
         let semanticInfo: SemanticInfo? = self
             .request
@@ -68,6 +74,20 @@ extension TestingViewModel {
 
     }
 
+    private func lastUpdateInfo(from semantic: SemanticInfo?) -> String {
+
+        guard let lastUpdate = semantic?.lastUpdate else {
+            return Self.emptyUpdateInfo
+        }
+
+        let dateValue = lastUpdate.toString(withFormat: "dd.MM.yyyy HH:mm")
+        return "Последнее обновление в \(dateValue)"
+
+    }
+
+}
+
+extension TestingViewModel {
 
     func execute() {
 
@@ -76,46 +96,31 @@ extension TestingViewModel {
             .map { data, semantic in
                 return (data, semantic)
             }
-            .asFlow
-            .connectPending(to: self)
             .eraseToAnyPublisher()
 
         let remoteRequest = self.remoteDataRequest()
                             .map { apiData -> (TheNewsApiSources, SemanticInfo?) in
                                 return (apiData, SemanticInfo(withLastUpdate: Date()))
                             }
-                            .asFlow
-                            .connectPending(to: self)
                             .eraseToAnyPublisher()
 
         cacheRequest
-            .flatMap { (a: Flow) -> AnyPublisher<Flow, Error> in
-                return remoteRequest
-                    .map { flow in
-                        switch flow {
-                        case .data(let data):
-                            break
-                        default:
-                            break
-                        }
-                        return flow
-                    }
-                    .eraseToAnyPublisher()
+            .flatMap { _ in
+                remoteRequest
             }
+            .asFlow
+            .connectPending(to: self)
+            .connectError(to: self,
+                          collecting: &self.bag)
             .fromFlow()
             .sink { _ in
 
-            } receiveValue: { (data: (TheNewsApiSources, SemanticInfo?)) in
-
+            } receiveValue: {[weak self] (data: (TheNewsApiSources, SemanticInfo?)) in
+                self?.lastUpdate = self?.lastUpdateInfo(from: data.1) ?? Self.emptyUpdateInfo
+                self?.list = data.0.data
             }
             .store(in: &self.bag)
 
-
-
-
-
-
     }
-
 
 }
