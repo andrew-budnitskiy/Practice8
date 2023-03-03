@@ -12,6 +12,7 @@ import CoreData
 class TestingViewModel: PracticeViewModel {
 
     private static let emptyUpdateInfo = "Загрузка данных не производилась"
+    private let lastUpdateInfoKey = "lastUpdate"
 
     @Published var list: [TheNewsApiSource] = []
     @Published var lastUpdate: String = emptyUpdateInfo
@@ -56,17 +57,28 @@ extension TestingViewModel {
     }
 
     private func saveDataToCache(fromContext context: NSManagedObjectContext) -> AnyPublisher<Void, Error> {
-        self
+
+        self.request.userDefaults.setValue(SemanticInfo(withLastUpdate: Date()),
+                                           forKey: self.lastUpdateInfoKey)
+        return self
             .request
             .database
             .commit_(onContext: context)
+            .flatMap { [weak self] _ in
+                return self?
+                    .request
+                    .database
+                    .commit_() ?? Empty<Void, Error>().eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+
     }
 
     private func semanticInfoRequest() -> AnyPublisher<SemanticInfo?, Error> {
 
         let semanticInfo: SemanticInfo? = self
             .request
-            .userDefaults.value(forKey: "",
+            .userDefaults.value(forKey: self.lastUpdateInfoKey,
                                 usingDecoder: JSONDecoder())
 
         return Future<SemanticInfo?, Error>.init { promise in
@@ -87,19 +99,38 @@ extension TestingViewModel {
 
     }
 
+    private var cacheRequest: AnyPublisher<([TheNewsApiSource], SemanticInfo?), Error> {
+
+        Publishers.Zip(coreDataCacheRequest(),
+                                          semanticInfoRequest())
+            .map { [weak self] data -> ([TheNewsApiSource], SemanticInfo?) in
+                self?.list = data.0
+                self?.lastUpdate = self?.lastUpdateInfo(from: data.1) ?? Self.emptyUpdateInfo
+                return data
+            }
+            .eraseToAnyPublisher()
+
+    }
+
+    func executeCacheRequest() {
+
+        self
+            .cacheRequest
+            .sink(receiveCompletion: { completion in
+
+            }, receiveValue: { [weak self] data in
+                self?.list = data.0
+                self?.lastUpdate = self?.lastUpdateInfo(from: data.1) ?? Self.emptyUpdateInfo
+            })
+            .store(in: &self.bag)
+
+    }
+
 }
 
 extension TestingViewModel {
 
     func execute() {
-
-        let cacheRequest = Publishers.CombineLatest(coreDataCacheRequest(),
-                                          semanticInfoRequest())
-            .map { data -> ([TheNewsApiSource], SemanticInfo?) in
-                self.list = data.0
-                return data
-            }
-            .eraseToAnyPublisher()
 
         let remoteRequest: (NSManagedObjectContext) -> AnyPublisher<([TheNewsApiSource], SemanticInfo?), Error> =  {[weak self] context in
 
@@ -139,16 +170,16 @@ extension TestingViewModel {
 //
 //            .store(in: &self.bag)
 
-        cacheRequest
+        self.cacheRequest
             .flatMap { (data: ([TheNewsApiSource], SemanticInfo?)) -> AnyPublisher<([TheNewsApiSource], SemanticInfo?), Error> in
                 let context = try! CommonFunctions.CoreData.Ground.newManageObjectContext()
                 return remoteRequest(context)
-                    .flatMap { [weak self] d -> AnyPublisher<Void, Error> in
-                        guard let self = self else {
-                            return Empty<Void, Error>().eraseToAnyPublisher()
-                        }
-                        return self.cleanCacheRequest()
-                    }
+//                    .flatMap { [weak self] d -> AnyPublisher<Void, Error> in
+//                        guard let self = self else {
+//                            return Empty<Void, Error>().eraseToAnyPublisher()
+//                        }
+//                        return self.cleanCacheRequest()
+//                    }
                     .flatMap { [weak self] q -> AnyPublisher<Void, Error> in
                         guard let self = self else {
                             return Empty<Void, Error>().eraseToAnyPublisher()

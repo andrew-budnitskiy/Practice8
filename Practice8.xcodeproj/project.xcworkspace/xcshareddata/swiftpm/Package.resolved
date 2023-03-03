@@ -6,7 +6,7 @@
       "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
         "branch" : "master",
-        "revision" : "e68cfdf9c5aa4e69f675198a3cf8bef72c7cdede"
+        "revision" : "81a29729e7dbfe7b976723843d0280926587a532"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/konkab/AlamofireNetworkActivityLogger.git",
       "state" : {
-        "revision" : "8db9d4e27176905298e7215e3d800e349cdfa30b",
-        "version" : "3.4.0"
+        "branch" : "master",
+        "revision" : "8db9d4e27176905298e7215e3d800e349cdfa30b"
       }
     }
   ],

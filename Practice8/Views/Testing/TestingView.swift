@@ -18,27 +18,39 @@ struct TestingView: View, ViewModelled {
 
     var body: some View {
 
-        VStack {
-
-            Button("Запрос") {
-                self.viewModel.execute()
-            }
-            .frame(height: 50)
-
-            .modifier(ActivityIdicator(tintColor: .gray,
-                                       hidden: !self.viewModel.pending))
-
-            ScrollView {
-
-                ForEach(self.viewModel.list) { item in
-                    Text("asd")
+            VStack {
+                HStack {
+                    Text("\(self.viewModel.lastUpdate)")
+                        .frame(alignment: .leading)
+                        .font(.system(size: 10))
+                        .foregroundColor(.black)
+                        .background(.yellow)
+                    Spacer()
                 }
-            }
-
-
-
+                .padding(.leading, 20)
+                .modifier(ActivityIdicator(tintColor: .gray,
+                                           hidden: !self.viewModel.pending))
+                ScrollView {
+                    ForEach(self.viewModel.list) { item in
+                        Text("asd")
+                    }
+                }
+                .onAppear {
+                    self
+                        .viewModel
+                        .executeCacheRequest()
+                }
+                Spacer()
+        }
+        .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Обновить") {
+                        self
+                            .viewModel
+                            .execute()
+                    }
+                }
         }
 
     }
-
 }

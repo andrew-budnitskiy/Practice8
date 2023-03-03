@@ -19,9 +19,8 @@ struct StartView: View, ViewModelled {
     var body: some View {
 
         NavigationView {
+
             VStack {
-
-
                 NavigationLink {
                     let viewModel = TestingViewModel()
                     TestingView(withViewModel: viewModel)
@@ -29,17 +28,21 @@ struct StartView: View, ViewModelled {
                     Text("Экран тестирования")
                         .foregroundColor(.blue)
                         .frame(width: 200,
-                               height: 60,
-                               alignment: .center)
+                               height: 60)
                         .overlay(
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(.blue,
                                             lineWidth: 1)
                             )
                 }
-
+                Spacer()
             }
+
+
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .navigationViewStyle(StackNavigationViewStyle()).padding(.top, 5)
 
     }
 
