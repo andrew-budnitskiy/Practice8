@@ -20,7 +20,9 @@ class TestingViewModel: PracticeViewModel {
 
 extension TestingViewModel {
 
-    func remoteDataRequest() -> AnyPublisher<TheNewsApiSources, Error> {
+    func remoteDataRequest(usingContext context: NSManagedObjectContext) -> AnyPublisher<TheNewsApiSources, Error> {
+
+        TheNewsApiSource.Context = context
         let apiToken: String = "wVTpnmkmnAQudIaFoRgqZhyNcCMlbsA6Fd8fDR6i"
         let url = "https://api.thenewsapi.com/v1/news/sources"
         let result: AnyPublisher<TheNewsApiSources, Error> = self
@@ -92,33 +94,96 @@ extension TestingViewModel {
     func execute() {
 
         let cacheRequest = Publishers.CombineLatest(coreDataCacheRequest(),
-                                                    semanticInfoRequest())
-            .map { data, semantic in
-                return (data, semantic)
+                                          semanticInfoRequest())
+            .map { data -> ([TheNewsApiSource], SemanticInfo?) in
+                self.list = data.0
+                return data
             }
             .eraseToAnyPublisher()
 
-        let remoteRequest = self.remoteDataRequest()
-                            .map { apiData -> (TheNewsApiSources, SemanticInfo?) in
-                                return (apiData, SemanticInfo(withLastUpdate: Date()))
+        let remoteRequest: (NSManagedObjectContext) -> AnyPublisher<([TheNewsApiSource], SemanticInfo?), Error> =  {[weak self] context in
+
+            guard let self = self else {
+                return Empty<([TheNewsApiSource], SemanticInfo?), Error>().eraseToAnyPublisher()
+            }
+
+            return self.remoteDataRequest(usingContext: context)
+                            .map { apiData -> ([TheNewsApiSource], SemanticInfo?) in
+                                return (apiData.data, SemanticInfo(withLastUpdate: Date()))
                             }
                             .eraseToAnyPublisher()
+        }
+//        let context = try! CommonFunctions.CoreData.Ground.newManageObjectContext()
+//        cacheRequest
+//            .flatMap { _ in
+//                remoteRequest(context)
+//            }
+//            .flatMap({ _ in
+//                return self.cleanCacheRequest()
+//            })
+//            .flatMap({ _ in
+//                return self.saveDataToCache(fromContext: context)
+//            })
+//
+//            .asFlow
+//            .connectPending(to: self)
+//            .connectError(to: self,
+//                          collecting: &self.bag)
+//            .sink { completion in
+//                print(completion)
+//            } receiveValue: {[weak self] /*(data: ([TheNewsApiSource], SemanticInfo?))*/ flow in
+////                self?.lastUpdate = self?.lastUpdateInfo(from: data.1) ?? Self.emptyUpdateInfo
+////                self?.list = data.0.data
+//
+//            }
+//
+//            .store(in: &self.bag)
 
         cacheRequest
-            .flatMap { _ in
-                remoteRequest
+            .flatMap { (data: ([TheNewsApiSource], SemanticInfo?)) -> AnyPublisher<([TheNewsApiSource], SemanticInfo?), Error> in
+                let context = try! CommonFunctions.CoreData.Ground.newManageObjectContext()
+                return remoteRequest(context)
+                    .flatMap { [weak self] d -> AnyPublisher<Void, Error> in
+                        guard let self = self else {
+                            return Empty<Void, Error>().eraseToAnyPublisher()
+                        }
+                        return self.cleanCacheRequest()
+                    }
+                    .flatMap { [weak self] q -> AnyPublisher<Void, Error> in
+                        guard let self = self else {
+                            return Empty<Void, Error>().eraseToAnyPublisher()
+                        }
+                        return self.saveDataToCache(fromContext: context)
+                    }
+                    .map({ _ in
+                        return data
+                    })
+                    .eraseToAnyPublisher()
             }
             .asFlow
             .connectPending(to: self)
             .connectError(to: self,
                           collecting: &self.bag)
-            .fromFlow()
-            .sink { _ in
+//            .fromFlow()
+            .sink { completion in
+                print(completion)
+            } receiveValue: {[weak self] flow in
 
-            } receiveValue: {[weak self] (data: (TheNewsApiSources, SemanticInfo?)) in
-                self?.lastUpdate = self?.lastUpdateInfo(from: data.1) ?? Self.emptyUpdateInfo
-                self?.list = data.0.data
+                switch flow {
+                case .data(let data):
+                    if let data = data as? ([TheNewsApiSource], SemanticInfo?) {
+                        self?.list = data.0
+                    }
+                default:
+                    break
+                }
+
+
+                if let data: ([TheNewsApiSource], SemanticInfo?) = flow.data() {
+                    self?.list = data.0
+                }
             }
+
             .store(in: &self.bag)
 
     }

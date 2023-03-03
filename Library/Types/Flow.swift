@@ -30,4 +30,13 @@ extension Flow: Pending {
     public var pending: Bool {
         self == .pending
     }
+
+    public func data<T>() -> T? {
+        switch self {
+        case .data(let data):
+            return data as? T
+        default:
+            return nil
+        }
+    }
 }

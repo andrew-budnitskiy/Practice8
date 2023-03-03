@@ -355,6 +355,7 @@ extension Publisher {
 
     var asFlow: AnyPublisher<Flow, Failure> {
         self
+            .share()
             .map { value in
                 return Flow.data(data: value)
             }
@@ -367,7 +368,7 @@ extension Publisher {
 extension Publisher where Output == Flow {
 
     func fromFlow<ResultType>() -> AnyPublisher<ResultType, Failure> {
-        self
+        return self
             .compactMap { flow in
                 if case .data(let value) = flow,
                     let result = value as? ResultType {
@@ -406,16 +407,17 @@ extension Publisher where Output == Flow {
     }
 
     func connectPending<RequestServiceType: RequestService>(to viewModel: CustomViewModel<RequestServiceType>) -> Self {
-        viewModel
-            .pendingSubject
-            .send(self.isPending)
+
+        self.isPending.assign(to: &viewModel.$pending)
+//        viewModel
+//            .pendingSubject
+//            .send(self.isPending)
 
         return self
     }
 
     func connectError<RequestServiceType: RequestService>(to viewModel: CustomViewModel<RequestServiceType>,
-                                                                            collecting bag: inout Set<AnyCancellable>) -> Self {
-
+                                                          collecting bag: inout Set<AnyCancellable>) -> Self {
         self
             .sink { completion in
                 if case .failure(let error) = completion {

@@ -27,7 +27,7 @@ class TheNewsApiSource: NSManagedObject, Decodable {
         guard let context = Self.Context else {
             throw CommonErrors.CoreData.contextNotCreated
         }
-
+        print("\(Thread.current)")
         self.init(context: context)
         let container = try decoder.container(keyedBy: CodingKeys.self)
 

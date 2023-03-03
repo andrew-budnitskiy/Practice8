@@ -18,9 +18,27 @@ struct TestingView: View, ViewModelled {
 
     var body: some View {
 
-        Button("Запрос") {
-            self.viewModel.execute()
+        VStack {
+
+            Button("Запрос") {
+                self.viewModel.execute()
+            }
+            .frame(height: 50)
+
+            .modifier(ActivityIdicator(tintColor: .gray,
+                                       hidden: !self.viewModel.pending))
+
+            ScrollView {
+
+                ForEach(self.viewModel.list) { item in
+                    Text("asd")
+                }
+            }
+
+
+
         }
+
     }
 
 }

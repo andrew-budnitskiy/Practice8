@@ -53,6 +53,7 @@
 		0BDEB22D299C148F0009A163 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDEB22C299C148F0009A163 /* TestingView.swift */; };
 		CE20693F29AF912B009B7226 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE20693E29AF912B009B7226 /* Alamofire */; };
 		CE20694229AF913F009B7226 /* AlamofireNetworkActivityLogger in Frameworks */ = {isa = PBXBuildFile; productRef = CE20694129AF913F009B7226 /* AlamofireNetworkActivityLogger */; };
+		CEC2FEFA29B2290600E0C795 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2FEF929B2290600E0C795 /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		0BDEB224299C0FA30009A163 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		0BDEB22A299C14830009A163 /* TestingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewModel.swift; sourceTree = "<group>"; };
 		0BDEB22C299C148F0009A163 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		CEC2FEF929B2290600E0C795 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			children = (
 				0BDEB22A299C14830009A163 /* TestingViewModel.swift */,
 				0BDEB22C299C148F0009A163 /* TestingView.swift */,
+				CEC2FEF929B2290600E0C795 /* ActivityIndicator.swift */,
 			);
 			path = Testing;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				0B54A824299947A7007CD40B /* ErrorHeaderable.swift in Sources */,
 				0B54A823299947A7007CD40B /* ViewModel.swift in Sources */,
 				0BDEB21F299C0DDB0009A163 /* PracticeViewModel.swift in Sources */,
+				CEC2FEFA29B2290600E0C795 /* ActivityIndicator.swift in Sources */,
 				0B54A813299947A6007CD40B /* NotificationDesign.swift in Sources */,
 				0B54A811299947A6007CD40B /* Settings.swift in Sources */,
 				0B54A82F29995728007CD40B /* TypeAliases.swift in Sources */,
