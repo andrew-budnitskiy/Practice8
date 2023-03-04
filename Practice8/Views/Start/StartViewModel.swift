@@ -7,4 +7,5 @@
 
 import Foundation
 
+//  ViewModel стартового экрана
 class StartViewModel: PracticeViewModel {}

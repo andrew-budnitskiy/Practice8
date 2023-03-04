@@ -21,11 +21,8 @@
 		0B54A80D299947A6007CD40B /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7E8299947A6007CD40B /* ServiceLocator.swift */; };
 		0B54A80E299947A6007CD40B /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7E9299947A6007CD40B /* Flow.swift */; };
 		0B54A810299947A6007CD40B /* CustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7EB299947A6007CD40B /* CustomViewModel.swift */; };
-		0B54A811299947A6007CD40B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7EC299947A6007CD40B /* Settings.swift */; };
 		0B54A812299947A6007CD40B /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7ED299947A6007CD40B /* CommonFunctions.swift */; };
 		0B54A813299947A6007CD40B /* NotificationDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7EE299947A6007CD40B /* NotificationDesign.swift */; };
-		0B54A814299947A6007CD40B /* Subscribers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7EF299947A6007CD40B /* Subscribers.swift */; };
-		0B54A818299947A6007CD40B /* PublishedOnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7F4299947A6007CD40B /* PublishedOnMain.swift */; };
 		0B54A819299947A6007CD40B /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7F6299947A6007CD40B /* CommonExtensions.swift */; };
 		0B54A81A299947A6007CD40B /* HttpAfRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7F8299947A6007CD40B /* HttpAfRequestParams.swift */; };
 		0B54A81B299947A6007CD40B /* CustomHttpAfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7F9299947A6007CD40B /* CustomHttpAfService.swift */; };
@@ -38,9 +35,7 @@
 		0B54A822299947A7007CD40B /* Pending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A801299947A6007CD40B /* Pending.swift */; };
 		0B54A823299947A7007CD40B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A802299947A6007CD40B /* ViewModel.swift */; };
 		0B54A824299947A7007CD40B /* ErrorHeaderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A803299947A6007CD40B /* ErrorHeaderable.swift */; };
-		0B54A825299947A7007CD40B /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A804299947A6007CD40B /* Routing.swift */; };
 		0B54A826299947A7007CD40B /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A805299947A6007CD40B /* DIContainer.swift */; };
-		0B54A827299947A7007CD40B /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A806299947A6007CD40B /* Route.swift */; };
 		0B54A828299947A7007CD40B /* ViewModelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A807299947A6007CD40B /* ViewModelled.swift */; };
 		0B54A82D29994B13007CD40B /* CustomCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A82C29994B13007CD40B /* CustomCoreDataService.swift */; };
 		0B54A82F29995728007CD40B /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A82E29995728007CD40B /* TypeAliases.swift */; };
@@ -73,11 +68,8 @@
 		0B54A7E8299947A6007CD40B /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		0B54A7E9299947A6007CD40B /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		0B54A7EB299947A6007CD40B /* CustomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewModel.swift; sourceTree = "<group>"; };
-		0B54A7EC299947A6007CD40B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		0B54A7ED299947A6007CD40B /* CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		0B54A7EE299947A6007CD40B /* NotificationDesign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDesign.swift; sourceTree = "<group>"; };
-		0B54A7EF299947A6007CD40B /* Subscribers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscribers.swift; sourceTree = "<group>"; };
-		0B54A7F4299947A6007CD40B /* PublishedOnMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishedOnMain.swift; sourceTree = "<group>"; };
 		0B54A7F6299947A6007CD40B /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
 		0B54A7F8299947A6007CD40B /* HttpAfRequestParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpAfRequestParams.swift; sourceTree = "<group>"; };
 		0B54A7F9299947A6007CD40B /* CustomHttpAfService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHttpAfService.swift; sourceTree = "<group>"; };
@@ -90,9 +82,7 @@
 		0B54A801299947A6007CD40B /* Pending.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pending.swift; sourceTree = "<group>"; };
 		0B54A802299947A6007CD40B /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		0B54A803299947A6007CD40B /* ErrorHeaderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHeaderable.swift; sourceTree = "<group>"; };
-		0B54A804299947A6007CD40B /* Routing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
 		0B54A805299947A6007CD40B /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
-		0B54A806299947A6007CD40B /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		0B54A807299947A6007CD40B /* ViewModelled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelled.swift; sourceTree = "<group>"; };
 		0B54A82C29994B13007CD40B /* CustomCoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCoreDataService.swift; sourceTree = "<group>"; };
 		0B54A82E29995728007CD40B /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
@@ -181,11 +171,8 @@
 				0B54A7E8299947A6007CD40B /* ServiceLocator.swift */,
 				0B54A7E9299947A6007CD40B /* Flow.swift */,
 				0B54A7EB299947A6007CD40B /* CustomViewModel.swift */,
-				0B54A7EC299947A6007CD40B /* Settings.swift */,
 				0B54A7ED299947A6007CD40B /* CommonFunctions.swift */,
 				0B54A7EE299947A6007CD40B /* NotificationDesign.swift */,
-				0B54A7EF299947A6007CD40B /* Subscribers.swift */,
-				0B54A7F4299947A6007CD40B /* PublishedOnMain.swift */,
 				0B54A82E29995728007CD40B /* TypeAliases.swift */,
 			);
 			path = Types;
@@ -222,9 +209,7 @@
 				0B54A801299947A6007CD40B /* Pending.swift */,
 				0B54A802299947A6007CD40B /* ViewModel.swift */,
 				0B54A803299947A6007CD40B /* ErrorHeaderable.swift */,
-				0B54A804299947A6007CD40B /* Routing.swift */,
 				0B54A805299947A6007CD40B /* DIContainer.swift */,
-				0B54A806299947A6007CD40B /* Route.swift */,
 				0B54A807299947A6007CD40B /* ViewModelled.swift */,
 			);
 			path = Protocols;
@@ -381,33 +366,28 @@
 				0B3DBBE829A2AF9800BAAFAB /* Types.swift in Sources */,
 				0B54A80C299947A6007CD40B /* CommonErrors.swift in Sources */,
 				0B54A828299947A7007CD40B /* ViewModelled.swift in Sources */,
-				0B54A827299947A7007CD40B /* Route.swift in Sources */,
 				0B54A80D299947A6007CD40B /* ServiceLocator.swift in Sources */,
 				0B54A824299947A7007CD40B /* ErrorHeaderable.swift in Sources */,
 				0B54A823299947A7007CD40B /* ViewModel.swift in Sources */,
 				0BDEB21F299C0DDB0009A163 /* PracticeViewModel.swift in Sources */,
 				CEC2FEFA29B2290600E0C795 /* ActivityIndicator.swift in Sources */,
 				0B54A813299947A6007CD40B /* NotificationDesign.swift in Sources */,
-				0B54A811299947A6007CD40B /* Settings.swift in Sources */,
 				0B54A82F29995728007CD40B /* TypeAliases.swift in Sources */,
 				0BDEB22D299C148F0009A163 /* TestingView.swift in Sources */,
 				0B54A7D3299943CB007CD40B /* Practice8App.swift in Sources */,
 				0BDEB223299C0F870009A163 /* StartViewModel.swift in Sources */,
 				0B54A81B299947A6007CD40B /* CustomHttpAfService.swift in Sources */,
-				0B54A825299947A7007CD40B /* Routing.swift in Sources */,
 				0B54A822299947A7007CD40B /* Pending.swift in Sources */,
 				0B54A819299947A6007CD40B /* CommonExtensions.swift in Sources */,
 				0B54A81E299947A7007CD40B /* CustomKeychainService.swift in Sources */,
 				0B54A80E299947A6007CD40B /* Flow.swift in Sources */,
 				0B54A820299947A7007CD40B /* RequestService.swift in Sources */,
-				0B54A814299947A6007CD40B /* Subscribers.swift in Sources */,
 				0B54A809299947A6007CD40B /* ConfigInstance.swift in Sources */,
 				0B54A831299960AF007CD40B /* CoreDataGround.swift in Sources */,
 				0B54A812299947A6007CD40B /* CommonFunctions.swift in Sources */,
 				0B7036D129B36E44008CC4AB /* NewsCellViewModel.swift in Sources */,
 				0B54A81C299947A6007CD40B /* CustomUserDefaultsService.swift in Sources */,
 				0B54A808299947A6007CD40B /* Constants.swift in Sources */,
-				0B54A818299947A6007CD40B /* PublishedOnMain.swift in Sources */,
 				0B54A821299947A7007CD40B /* Initializable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

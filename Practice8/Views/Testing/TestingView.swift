@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-
+// Основной рабочий экран
 struct TestingView: View, ViewModelled {
 
     @ObservedObject private(set) var viewModel: TestingViewModel

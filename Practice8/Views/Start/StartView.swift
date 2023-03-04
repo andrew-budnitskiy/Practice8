@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+
+// Стартовый экран
 struct StartView: View, ViewModelled {
 
     @ObservedObject private(set) var viewModel: StartViewModel
