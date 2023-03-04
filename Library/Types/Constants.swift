@@ -10,9 +10,7 @@ import Foundation
 public class CommonConstants {
 
     public class Http {
-
         public static var timeout: TimeInterval = 5
-
     }
 
 }

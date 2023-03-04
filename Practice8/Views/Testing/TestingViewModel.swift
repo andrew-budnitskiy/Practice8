@@ -60,6 +60,8 @@ extension TestingViewModel {
 
         self.request.userDefaults.setValue(SemanticInfo(withLastUpdate: Date()),
                                            forKey: self.lastUpdateInfoKey)
+        let semanticInfo: SemanticInfo? = self.request.userDefaults.value(forKey: self.lastUpdateInfoKey)
+        self.lastUpdate = self.lastUpdateInfo(from: semanticInfo)
         return self
             .request
             .database
@@ -174,13 +176,20 @@ extension TestingViewModel {
             .flatMap { (data: ([TheNewsApiSource], SemanticInfo?)) -> AnyPublisher<([TheNewsApiSource], SemanticInfo?), Error> in
                 let context = try! CommonFunctions.CoreData.Ground.newManageObjectContext()
                 return remoteRequest(context)
-//                    .flatMap { [weak self] d -> AnyPublisher<Void, Error> in
-//                        guard let self = self else {
-//                            return Empty<Void, Error>().eraseToAnyPublisher()
-//                        }
-//                        return self.cleanCacheRequest()
-//                    }
-                    .flatMap { [weak self] q -> AnyPublisher<Void, Error> in
+                    .catch({[weak self] error -> AnyPublisher<([TheNewsApiSource], SemanticInfo?), Error> in
+
+                        guard let self = self else {
+                            return Empty<([TheNewsApiSource], SemanticInfo?), Error>().eraseToAnyPublisher()
+                        }
+                        return self.cacheRequest
+                    })
+                    .flatMap { [weak self] _ -> AnyPublisher<Void, Error> in
+                        guard let self = self else {
+                            return Empty<Void, Error>().eraseToAnyPublisher()
+                        }
+                        return self.cleanCacheRequest()
+                    }
+                    .flatMap { [weak self] _ -> AnyPublisher<Void, Error> in
                         guard let self = self else {
                             return Empty<Void, Error>().eraseToAnyPublisher()
                         }
@@ -195,7 +204,6 @@ extension TestingViewModel {
             .connectPending(to: self)
             .connectError(to: self,
                           collecting: &self.bag)
-//            .fromFlow()
             .sink { completion in
                 print(completion)
             } receiveValue: {[weak self] flow in

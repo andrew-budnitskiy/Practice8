@@ -20,7 +20,6 @@
 		0B54A80C299947A6007CD40B /* CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7E7299947A6007CD40B /* CommonErrors.swift */; };
 		0B54A80D299947A6007CD40B /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7E8299947A6007CD40B /* ServiceLocator.swift */; };
 		0B54A80E299947A6007CD40B /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7E9299947A6007CD40B /* Flow.swift */; };
-		0B54A80F299947A6007CD40B /* PhoneRu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7EA299947A6007CD40B /* PhoneRu.swift */; };
 		0B54A810299947A6007CD40B /* CustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7EB299947A6007CD40B /* CustomViewModel.swift */; };
 		0B54A811299947A6007CD40B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7EC299947A6007CD40B /* Settings.swift */; };
 		0B54A812299947A6007CD40B /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A7ED299947A6007CD40B /* CommonFunctions.swift */; };
@@ -46,6 +45,8 @@
 		0B54A82D29994B13007CD40B /* CustomCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A82C29994B13007CD40B /* CustomCoreDataService.swift */; };
 		0B54A82F29995728007CD40B /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A82E29995728007CD40B /* TypeAliases.swift */; };
 		0B54A831299960AF007CD40B /* CoreDataGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54A830299960AF007CD40B /* CoreDataGround.swift */; };
+		0B7036CF29B36DD1008CC4AB /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7036CE29B36DD1008CC4AB /* NewsCell.swift */; };
+		0B7036D129B36E44008CC4AB /* NewsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7036D029B36E44008CC4AB /* NewsCellViewModel.swift */; };
 		0B8A9D3729B27D0800A508B9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0B8A9D3629B27D0800A508B9 /* Alamofire */; };
 		0B8A9D3A29B27D3400A508B9 /* AlamofireNetworkActivityLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 0B8A9D3929B27D3400A508B9 /* AlamofireNetworkActivityLogger */; };
 		0BDEB21F299C0DDB0009A163 /* PracticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDEB21E299C0DDB0009A163 /* PracticeViewModel.swift */; };
@@ -71,7 +72,6 @@
 		0B54A7E7299947A6007CD40B /* CommonErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonErrors.swift; sourceTree = "<group>"; };
 		0B54A7E8299947A6007CD40B /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		0B54A7E9299947A6007CD40B /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
-		0B54A7EA299947A6007CD40B /* PhoneRu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneRu.swift; sourceTree = "<group>"; };
 		0B54A7EB299947A6007CD40B /* CustomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewModel.swift; sourceTree = "<group>"; };
 		0B54A7EC299947A6007CD40B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		0B54A7ED299947A6007CD40B /* CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
@@ -97,6 +97,8 @@
 		0B54A82C29994B13007CD40B /* CustomCoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCoreDataService.swift; sourceTree = "<group>"; };
 		0B54A82E29995728007CD40B /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		0B54A830299960AF007CD40B /* CoreDataGround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataGround.swift; sourceTree = "<group>"; };
+		0B7036CE29B36DD1008CC4AB /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		0B7036D029B36E44008CC4AB /* NewsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellViewModel.swift; sourceTree = "<group>"; };
 		0BDEB21E299C0DDB0009A163 /* PracticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewModel.swift; sourceTree = "<group>"; };
 		0BDEB222299C0F870009A163 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		0BDEB224299C0FA30009A163 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -178,7 +180,6 @@
 				0B54A7E7299947A6007CD40B /* CommonErrors.swift */,
 				0B54A7E8299947A6007CD40B /* ServiceLocator.swift */,
 				0B54A7E9299947A6007CD40B /* Flow.swift */,
-				0B54A7EA299947A6007CD40B /* PhoneRu.swift */,
 				0B54A7EB299947A6007CD40B /* CustomViewModel.swift */,
 				0B54A7EC299947A6007CD40B /* Settings.swift */,
 				0B54A7ED299947A6007CD40B /* CommonFunctions.swift */,
@@ -229,6 +230,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		0B7036CD29B36DC1008CC4AB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0B7036CE29B36DD1008CC4AB /* NewsCell.swift */,
+				0B7036D029B36E44008CC4AB /* NewsCellViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0BDEB21D299C0DBD0009A163 /* LocalLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +270,7 @@
 		0BDEB229299C146D0009A163 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
+				0B7036CD29B36DC1008CC4AB /* Cell */,
 				0BDEB22A299C14830009A163 /* TestingViewModel.swift */,
 				0BDEB22C299C148F0009A163 /* TestingView.swift */,
 				CEC2FEF929B2290600E0C795 /* ActivityIndicator.swift */,
@@ -364,6 +375,7 @@
 				0BDEB22B299C14830009A163 /* TestingViewModel.swift in Sources */,
 				0B54A82D29994B13007CD40B /* CustomCoreDataService.swift in Sources */,
 				0B54A81A299947A6007CD40B /* HttpAfRequestParams.swift in Sources */,
+				0B7036CF29B36DD1008CC4AB /* NewsCell.swift in Sources */,
 				0B54A80A299947A6007CD40B /* Elementary.swift in Sources */,
 				0B54A81F299947A7007CD40B /* DataEmitting.swift in Sources */,
 				0B3DBBE829A2AF9800BAAFAB /* Types.swift in Sources */,
@@ -392,9 +404,9 @@
 				0B54A809299947A6007CD40B /* ConfigInstance.swift in Sources */,
 				0B54A831299960AF007CD40B /* CoreDataGround.swift in Sources */,
 				0B54A812299947A6007CD40B /* CommonFunctions.swift in Sources */,
+				0B7036D129B36E44008CC4AB /* NewsCellViewModel.swift in Sources */,
 				0B54A81C299947A6007CD40B /* CustomUserDefaultsService.swift in Sources */,
 				0B54A808299947A6007CD40B /* Constants.swift in Sources */,
-				0B54A80F299947A6007CD40B /* PhoneRu.swift in Sources */,
 				0B54A818299947A6007CD40B /* PublishedOnMain.swift in Sources */,
 				0B54A821299947A7007CD40B /* Initializable.swift in Sources */,
 			);

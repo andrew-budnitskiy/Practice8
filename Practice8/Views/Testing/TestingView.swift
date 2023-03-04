@@ -28,13 +28,17 @@ struct TestingView: View, ViewModelled {
                     Spacer()
                 }
                 .padding(.leading, 20)
+                .frame(maxWidth: .infinity)
                 .modifier(ActivityIdicator(tintColor: .gray,
                                            hidden: !self.viewModel.pending))
                 ScrollView {
                     ForEach(self.viewModel.list) { item in
-                        Text("asd")
+                        let cellViewModel = NewsCellViewModel(withData: item)
+                        NewsCell(withViewModel: cellViewModel)
                     }
                 }
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 20)
                 .onAppear {
                     self
                         .viewModel
