@@ -26,12 +26,10 @@ struct NewsCell: View, ViewModelled {
                               weight: .bold))
                 .foregroundColor(.black)
 
-
             Text("\(self.viewModel.data?.categories ?? "")")
                 .font(.system(size: 10))
                 .foregroundColor(.gray)
                 .padding(.top, 2)
-                .background(.green)
 
         }
         .frame(maxWidth: .infinity, alignment: .leading)

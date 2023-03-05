@@ -61,13 +61,16 @@ extension TestingViewModel {
             .delete(inTable: .tables.TheNewsApiSources)
     }
 
-    // функция сохранения данных в кэше в coreData и информации о последнем обновлении в UserDefaults
-    private func saveDataToCache(fromContext context: NSManagedObjectContext) -> AnyPublisher<Void, Error> {
-
+    private func saveLastUpdateInfo() {
         self.request.userDefaults.setValue(SemanticInfo(withLastUpdate: Date()),
                                            forKey: self.lastUpdateInfoKey)
         let semanticInfo: SemanticInfo? = self.request.userDefaults.value(forKey: self.lastUpdateInfoKey)
         self.lastUpdate = self.lastUpdateInfo(from: semanticInfo)
+    }
+
+    // функция сохранения данных в кэше в coreData и информации о последнем обновлении в UserDefaults
+    private func saveDataToCache(fromContext context: NSManagedObjectContext) -> AnyPublisher<Void, Error> {
+        self.saveLastUpdateInfo()
         return self
             .request
             .database
@@ -105,7 +108,7 @@ extension TestingViewModel {
         }
 
         let dateValue = lastUpdate.toString(withFormat: "dd.MM.yyyy HH:mm")
-        return "Последнее обновление в \(dateValue)"
+        return "Последняя загрузка данных в \(dateValue)"
 
     }
 
@@ -114,11 +117,6 @@ extension TestingViewModel {
 
         Publishers.Zip(coreDataCacheRequest(),
                        semanticInfoRequest())
-            .map { [weak self] data -> ([TheNewsApiSource], SemanticInfo?) in
-                self?.list = data.0
-                self?.lastUpdate = self?.lastUpdateInfo(from: data.1) ?? Self.emptyUpdateInfo
-                return data
-            }
             .eraseToAnyPublisher()
 
     }
@@ -166,33 +164,30 @@ extension TestingViewModel {
                 // и в нем формируем объекты NSManagedObject получаемые при декодировании результатов запроса
                 // см. тип TheNewsDataSource
                 return remoteRequest(context)
-                    .catch({[weak self] error -> AnyPublisher<([TheNewsApiSource], SemanticInfo?), Error> in
-
+                    .flatMap { [weak self] requestResult -> AnyPublisher<([TheNewsApiSource], SemanticInfo?), Error> in
                         guard let self = self else {
                             return Empty<([TheNewsApiSource], SemanticInfo?), Error>().eraseToAnyPublisher()
                         }
-                        //при ошибке возвращаем данные кэша
-                        return self.cacheRequest
-                    })
-//                    .flatMap { [weak self] _ -> AnyPublisher<Void, Error> in
-//                        guard let self = self else {
-//                            return Empty<Void, Error>().eraseToAnyPublisher()
-//                        }
-//                        // очищаем кэш CoreData
-//                        return self.cleanCacheRequest()
-//                    }
-                    .flatMap { [weak self] _ -> AnyPublisher<Void, Error> in
-                        guard let self = self else {
-                            return Empty<Void, Error>().eraseToAnyPublisher()
-                        }
-                        // сохраняем принятые данные и фиксируем время приемки данных
-                        return self.saveDataToCache(fromContext: context)
+                        // очищаем кэш CoreData
+                        return self.cleanCacheRequest()
+                            .flatMap({ _ in
+                                self.saveDataToCache(fromContext: context)
+                            })
+                            .map { _ in
+                                return requestResult
+                            }
+                            .eraseToAnyPublisher()
                     }
-                    .map({ _ in
-                        return data
-                    })
                     .eraseToAnyPublisher()
             }
+            .catch({[weak self] error -> AnyPublisher<([TheNewsApiSource], SemanticInfo?), Error> in
+
+                guard let self = self else {
+                    return Empty<([TheNewsApiSource], SemanticInfo?), Error>().eraseToAnyPublisher()
+                }
+                //при ошибке возвращаем данные кэша
+                return self.cacheRequest
+            })
         // преобразуем в служебный тип для удобства управления progressView
             .asFlow
             .connectPending(to: self)
@@ -209,7 +204,7 @@ extension TestingViewModel {
                         self?.list = data.0
                     }
                 default:
-                    break
+                    self?.list = []
                 }
 
             }

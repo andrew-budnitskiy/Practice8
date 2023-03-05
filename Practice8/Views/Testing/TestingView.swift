@@ -23,8 +23,6 @@ struct TestingView: View, ViewModelled {
                     Text("\(self.viewModel.lastUpdate)")
                         .frame(alignment: .leading)
                         .font(.system(size: 10))
-                        .foregroundColor(.black)
-                        .background(.yellow)
                     Spacer()
                 }
                 .padding(.leading, 20)
