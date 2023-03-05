@@ -174,13 +174,13 @@ extension TestingViewModel {
                         //при ошибке возвращаем данные кэша
                         return self.cacheRequest
                     })
-                    .flatMap { [weak self] _ -> AnyPublisher<Void, Error> in
-                        guard let self = self else {
-                            return Empty<Void, Error>().eraseToAnyPublisher()
-                        }
-                        // очищаем кэш CoreData
-                        return self.cleanCacheRequest()
-                    }
+//                    .flatMap { [weak self] _ -> AnyPublisher<Void, Error> in
+//                        guard let self = self else {
+//                            return Empty<Void, Error>().eraseToAnyPublisher()
+//                        }
+//                        // очищаем кэш CoreData
+//                        return self.cleanCacheRequest()
+//                    }
                     .flatMap { [weak self] _ -> AnyPublisher<Void, Error> in
                         guard let self = self else {
                             return Empty<Void, Error>().eraseToAnyPublisher()
